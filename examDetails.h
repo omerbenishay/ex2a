@@ -1,26 +1,17 @@
 #ifndef EXAM_DETAILS_H_
 #define EXAM_DETAILS_H_
 #include <string>
-#include <ostream>
+#include <iostream>
 
 namespace mtm {
     class ExamDetails {
-        private:
-            int course_number;
-            int month;
-            int day;
-            double time;
-            int duration;
-            std::string link;
-            void checkArgs(int course_number, int month, int day, double time, int duration);
-
         public:
             ExamDetails(int course_number,
                         int month,
                         int day,
                         double time,
                         int duration,
-                        std::string link= "");
+                        std::string link = "");
             ExamDetails(const ExamDetails& exam);
             ~ExamDetails() = default;
             static ExamDetails makeMatamExam();
@@ -33,6 +24,15 @@ namespace mtm {
             class InvalidDateException {};
             class InvalidTimeException {};
             class InvalidArgsException {};
+
+        private:
+            int course_number;
+            int month;
+            int day;
+            double time;
+            int duration;
+            std::string link;
+            void checkArgs(int course_number, int month, int day, double time, int duration);
     };
 };
 
